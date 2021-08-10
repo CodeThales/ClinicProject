@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "ALiumfwwC0Vd/WFD2H5bgwEKbWH458oKoBoI4Tfpwun+jd4SJ2Wtoiv7Nw+sR2E1GNa0bD2O+7j4VeJJUpOBlg==",
+  "dgSpecHash": "KEtbaU/2LnF6flElPB+xOKxh3ycA46eyFDGiF9hdu+EywsPOV3QkZ8T9x8kcPcR1B7c89xO7/9wNXs7jtFbZSw==",
   "success": true,
-  "projectFilePath": "D:\\O Talito\\Documents\\Cursos\\Programação e Desenvolvimento\\Blue EdTech\\Modulo 03 - BackEnd\\Projeto Consultório\\Consultorio\\Consultorio.csproj",
+  "projectFilePath": "D:\\O Talito\\Documents\\Cursos\\Programação e Desenvolvimento\\Blue EdTech\\Modulo 03 - BackEnd\\ClinicProject\\Consultorio\\Consultorio.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Thales Ribero\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\Thales Ribero\\.nuget\\packages\\microsoft.aspnetcore.mvc.razor.extensions\\5.0.8\\microsoft.aspnetcore.mvc.razor.extensions.5.0.8.nupkg.sha512",
