@@ -1,0 +1,37 @@
+﻿@model Consulta
+
+<h2>Agende a consulta abaixo</h2>
+
+<div class="row">
+    <form class="col-md-4" asp-action="Create">
+        <div class="form-group">
+            <label asp-for="data" class="control-label"></label>
+            <input asp-for="data" class="form-control" />
+            <span class="text-danger" asp-validation-for="data"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="descricao" class="control-label"></label>
+            <input asp-for="descricao" class="form-control" />
+            <span class="text-danger" asp-validation-for="descricao"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="pacienteId" class="control-label"></label>
+            <select asp-for="pacienteId" class="form-control" asp-items="ViewBag.listaDePacientes">
+                <option value="">--Selecione--</option>
+            </select>
+            <span class="text-danger" asp-validation-for="pacienteId"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="especialidadeId" class="control-label"></label>
+            <select asp-for="especialidadeId" class="form-control" asp-items="ViewBag.listaDeEspecialidades">
+                <option value="">--Selecione--</option>
+            </select>
+            <span class="text-danger" asp-validation-for="especialidadeId"></span>
+        </div>
+        <div class="form-group">
+            <input class="btn btn-success" type="submit" value="Criar!" />
+            <a class="btn btn-info" asp-action="Index">Voltar!</a>
+        </div>
+    </form>
+</div>
+

@@ -1,0 +1,43 @@
+﻿@model Paciente
+
+@if(Model == null)
+{
+    <h3>PACIENTE NÃO EXISTE</h3>
+    <a asp-action="Index">Voltar</a>
+}
+else { 
+
+<h3>Visualizando paciente @Model.Nome</h3>
+<br />
+
+<dl class="row">
+    <dt class="col-sm-3">@Html.DisplayNameFor(Model => Model.Id)</dt>
+    <dd class="col-sm-9">@Html.DisplayFor(Model => Model.Id)</dd>
+
+    <dt class="col-sm-3">@Html.DisplayNameFor(Model => Model.Nome)</dt>
+    <dd class="col-sm-9">@Html.DisplayFor(Model => Model.Nome)</dd>
+
+    <dt class="col-sm-3">@Html.DisplayNameFor(Model => Model.Tel)</dt>
+    <dd class="col-sm-9">@Html.DisplayFor(Model => Model.Tel)</dd>
+
+    <dt class="col-sm-3">@Html.DisplayNameFor(Model => Model.Nascimento)</dt>
+    <dd class="col-sm-9">@Html.DisplayFor(Model => Model.Nascimento)</dd>
+
+    <dt class="col-sm-3">@Html.DisplayNameFor(Model => Model.Descricao)</dt>
+    <dd class="col-sm-9">@Html.DisplayFor(Model => Model.Descricao)</dd>
+</dl>
+
+@if(Model.Consultas.Count > 0)
+                {
+                    <hr />
+                    <h3 class="mb-3">Consultas Agendadas</h3>
+                    @foreach(Consulta c in Model.Consultas)
+                    {
+                        <p><strong>Especialidade: </strong>@Html.DisplayFor(x => c.especialidade.Nome)</p>
+                        <p><strong>Data e Hora: </strong>@Html.DisplayFor(x => c.data)</p>
+                        <p><strong>Observações: </strong>@Html.DisplayFor(x => c.descricao)</p>
+                    }
+                }
+}
+
+<a class="btn btn-info" asp-controller="Paciente" asp-action="Index">Voltar!</a>

@@ -1,0 +1,29 @@
+﻿@model List<Especialidade>
+
+<h2>Especialidades Cadastradas</h2>
+<a class="btn btn-info mb-3 mt-3" asp-controller="Especialidade" asp-action="Create">Adicionar uma nova especialidade!</a>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>@Html.DisplayNameFor(Model => Model.First().Id)</th>
+            <th>@Html.DisplayNameFor(Model => Model.First().Nome)</th>
+            <th>@Html.DisplayNameFor(Model => Model.First().Descricao)</th>
+            <th>Ações</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (Especialidade especialidade in Model)
+        {
+            <tr>
+                <td> @Html.DisplayFor(Model => especialidade.Id) </td>
+                <td> @Html.DisplayFor(Model => especialidade.Nome) </td>
+                <td> @Html.DisplayFor(Model => especialidade.Descricao) </td>
+                <td>
+                    <a asp-action="Update" asp-route-id="@especialidade.Id">Atualizar</a> |
+                    <a asp-action="Confirm" asp-route-id="@especialidade.Id">Deletar</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

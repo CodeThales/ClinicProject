@@ -1,0 +1,76 @@
+﻿@model List<Paciente>
+@{
+    var service = ViewBag.selectedService;
+}
+
+<h2 class="mb-4 mt-2">Lista de pacientes</h2>
+
+<form class="row">
+    <div class="col col-md-4">
+        <input type="text" class="form-control mt-2 mb-3" name="busca" placeholder="Pesquisar..." />
+
+        <select name="service" class="form-control">
+            <option value="sql" selected>Dados SQL</option>
+            <option value="static">Dados Estáticos</option>
+        </select>
+        <br />
+        <button type="submit" class="btn btn-info mb-4">Buscar!</button>
+        @if (ViewBag.ordenar == true)
+        {
+            <a asp-action="Index" class="btn btn-outline-info mb-4">Remover ordenação!</a>
+        }
+        else
+        {
+            <a href="?ordenar=true&service=@service" class="btn btn-info mr-0 mb-4">Ordenar!</a>
+        }
+        <a class="btn btn-info mb-4" asp-controller="Paciente" asp-action="Create">Adicionar Paciente!</a>
+    </div>
+</form>
+
+@*@if (ViewBag.Cadastrado == true)
+    {
+        <div class="alert alert-success" role="alert">
+            <p>Paciente cadastrado com sucesso!</p>
+        </div>
+    }*@
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>@Html.DisplayNameFor(Model => Model.First().Id)</th>
+            <th>@Html.DisplayNameFor(Model => Model.First().Nome)</th>
+            <th>@Html.DisplayNameFor(Model => Model.First().Nascimento)</th>
+            <th>Ações</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (Paciente paciente in Model)
+            @if (ViewBag.source == "static")
+            {
+                <tr>
+                    <td> @Html.DisplayFor(Model => paciente.Id) </td>
+                    <td> @Html.DisplayFor(Model => paciente.Nome) </td>
+                    <td> @Html.DisplayFor(Model => paciente.Nascimento) </td>
+                    <td>
+                        <p>Ações INDISPONÍVEIS para o método estático</p>
+                    </td>
+                </tr>
+            }
+            else if(ViewBag.source == "sql")
+            {
+                var classe = paciente.Consultas.Count > 0 ? "text-info" : "";
+                <tr class="@classe">
+                    <td> @Html.DisplayFor(Model => paciente.Id) </td>
+                    <td> @Html.DisplayFor(Model => paciente.Nome) </td>
+                    <td> @Html.DisplayFor(Model => paciente.Nascimento) </td>
+                    <td>
+                        <a asp-controller="Paciente" asp-action="Read" asp-route-id="@paciente.Id">Visualizar |</a>
+                        <a asp-controller="Paciente" asp-action="Update" asp-route-id="@paciente.Id"> Atualizar |</a>
+                        <a asp-controller="Paciente" asp-action="Confirm" asp-route-id="@paciente.Id"> Deletar</a>
+                    </td>
+                </tr>
+            }        
+    </tbody>
+</table>
+<br />
+<span>***Pacientes marcados em azul possuem consultas agendadas***</span>
