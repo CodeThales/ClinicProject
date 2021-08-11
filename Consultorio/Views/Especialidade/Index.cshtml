@@ -3,6 +3,27 @@
 <h2>Especialidades Cadastradas</h2>
 <a class="btn btn-info mb-3 mt-3" asp-controller="Especialidade" asp-action="Create">Adicionar uma nova especialidade!</a>
 
+@if (TempData["Adicionado"] != null)
+{
+    <div class="alert alert-success" role="alert">
+        <p>@TempData["Adicionado"]</p>
+    </div>
+}
+
+@if (TempData["Excluido"] != null)
+{
+    <div class="alert alert-danger" role="alert">
+        <p>@TempData["Excluido"]</p>
+    </div>
+}
+
+@if (TempData["Atualizado"] != null)
+{
+    <div class="alert alert-info" role="alert">
+        <p>@TempData["Atualizado"]</p>
+    </div>
+}
+
 <table class="table">
     <thead>
         <tr>

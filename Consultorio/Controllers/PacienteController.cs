@@ -32,13 +32,6 @@ namespace Consultorio.Controllers
             }
         }
 
-        //private void SetViewBag(bool cadastrado = false, bool atualizado = false, bool excluido = false)
-        //{
-        //    ViewBag.Cadastrado = cadastrado;
-        //    ViewBag.Atualizado = atualizado;
-        //    ViewBag.Excluido = excluido;
-        //}
-
         private void SetViewBag(string source = null)
         {
             ViewBag.source = source;
@@ -67,26 +60,24 @@ namespace Consultorio.Controllers
         public IActionResult Create(Paciente paciente)
         {
             if (!ModelState.IsValid) return View(paciente);
-            //SetViewBag(true, false, false);
 
-            return _service.create(paciente) ? RedirectToAction(nameof(Index)) : View(paciente);
+            TempData["Adicionado"] = "Paciente adicionado com sucesso!";
+
+            return _service.create(paciente) ? RedirectToAction(nameof(Index)) : View(paciente);            
+            
         }  
             
 
         public IActionResult Read(int? id)
         {
             Paciente paciente = _service.get(id);
-            return paciente != null ?
-                View(paciente) :
-                NotFound();
+            return paciente != null ? View(paciente) : NotFound();
         }
 
         public IActionResult Update(int? id)
         {
             Paciente paciente = _service.get(id);
-            return paciente != null ?
-                View(paciente) :
-                NotFound();
+            return paciente != null ? View(paciente) : NotFound();
         }
 
         [HttpPost] 
@@ -97,6 +88,8 @@ namespace Consultorio.Controllers
 
             if (_service.update(paciente))
             {
+
+                TempData["Atualizado"] = "Paciente atualizado com sucesso!";
                 return RedirectToAction(nameof(Index));
             }
             else
@@ -109,6 +102,8 @@ namespace Consultorio.Controllers
         {
             if (_service.delete(id))
             {
+
+                TempData["Excluido"] = "Paciente Excluido com sucesso!";
                 return RedirectToAction(nameof(Index));
             }
             else

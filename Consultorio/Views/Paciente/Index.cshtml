@@ -27,13 +27,26 @@
     </div>
 </form>
 
-@*@if (ViewBag.Cadastrado == true)
-    {
-        <div class="alert alert-success" role="alert">
-            <p>Paciente cadastrado com sucesso!</p>
-        </div>
-    }*@
+@if (TempData["Adicionado"] != null)
+{
+    <div class="alert alert-success" role="alert">
+        <p>@TempData["Adicionado"]</p>
+    </div>
+}
 
+@if (TempData["Excluido"] != null)
+{
+    <div class="alert alert-danger" role="alert">
+        <p>@TempData["Excluido"]</p>
+    </div>
+}
+
+@if (TempData["Atualizado"] != null)
+{
+    <div class="alert alert-info" role="alert">
+        <p>@TempData["Atualizado"]</p>
+    </div>
+}
 <table class="table">
     <thead>
         <tr>
@@ -56,7 +69,7 @@
                     </td>
                 </tr>
             }
-            else if(ViewBag.source == "sql")
+            else if (ViewBag.source == "sql")
             {
                 var classe = paciente.Consultas.Count > 0 ? "text-info" : "";
                 <tr class="@classe">
@@ -69,8 +82,8 @@
                         <a asp-controller="Paciente" asp-action="Confirm" asp-route-id="@paciente.Id"> Deletar</a>
                     </td>
                 </tr>
-            }        
-    </tbody>
-</table>
-<br />
-<span>***Pacientes marcados em azul possuem consultas agendadas***</span>
+            }
+        </tbody>
+    </table>
+    <br />
+    <span>***Pacientes marcados em azul possuem consultas agendadas***</span>

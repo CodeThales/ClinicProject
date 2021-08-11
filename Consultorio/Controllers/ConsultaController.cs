@@ -50,6 +50,7 @@ namespace Consultorio.Controllers
 
             if (service.create(consulta))
             {
+                TempData["Adicionado"] = "Consulta agendada com sucesso!";
                 return RedirectToAction(nameof(Index));
             }
             else
@@ -94,6 +95,7 @@ namespace Consultorio.Controllers
                 return View(consulta);
             }
             service.update(consulta);
+            TempData["Atualizado"] = "Consulta atualizada com sucesso!";
             return RedirectToAction(nameof(Index));            
         }
 
@@ -101,6 +103,7 @@ namespace Consultorio.Controllers
         {
             if (service.delete(id))
             {
+                TempData["Excluido"] = "Consulta excluída com sucesso!";
                 return RedirectToAction(nameof(Index));
             }
             else

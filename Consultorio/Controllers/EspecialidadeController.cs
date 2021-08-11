@@ -1,8 +1,6 @@
 ﻿using Consultorio.Models;
 using Consultorio.Services;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Rendering;
-using System;
 
 
 namespace Consultorio.Controllers
@@ -38,6 +36,7 @@ namespace Consultorio.Controllers
 
             if (service.create(especialidade))
             {
+                TempData["Adicionado"] = "Especialidade adicionada com sucesso!";
                 return RedirectToAction(nameof(Index));
             }
             else
@@ -71,6 +70,7 @@ namespace Consultorio.Controllers
 
             if (service.update(especialidade))
             {
+                TempData["Atualizado"] = "Especialidade atualizada com sucesso!";
                 return RedirectToAction(nameof(Index));
             }
             else
@@ -83,6 +83,7 @@ namespace Consultorio.Controllers
         {
             if (service.delete(id))
             {
+                TempData["Excluido"] = "Especialidade excluída com sucesso!";
                 return RedirectToAction(nameof(Index));
             }
             else

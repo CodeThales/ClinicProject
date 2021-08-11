@@ -3,6 +3,27 @@
 <h2>Consultas Agendadas</h2>
 <a class="btn btn-info mt-3 mb-3" asp-controller="Consulta" asp-action="Create">Agendar uma nova consulta!</a>
 
+@if (TempData["Adicionado"] != null)
+{
+    <div class="alert alert-success" role="alert">
+        <p>@TempData["Adicionado"]</p>
+    </div>
+}
+
+@if (TempData["Excluido"] != null)
+{
+    <div class="alert alert-danger" role="alert">
+        <p>@TempData["Excluido"]</p>
+    </div>
+}
+
+@if (TempData["Atualizado"] != null)
+{
+    <div class="alert alert-info" role="alert">
+        <p>@TempData["Atualizado"]</p>
+    </div>
+}
+
 <table class="table">
     <thead>
         <tr>
@@ -16,17 +37,17 @@
     <tbody>
         @foreach (Consulta consulta in Model)
         {
-        <tr>
-            <td> @Html.DisplayFor(Model => consulta.id) </td>
-            <td> @Html.DisplayFor(Model => consulta.especialidade.Nome) </td>
-            <td> @Html.DisplayFor(Model => consulta.data) </td>
-            <td> @Html.DisplayFor(Model => consulta.paciente.Nome) </td>
-            <td>
-                <a asp-action="Read" asp-route-id="@consulta.id">Visualizar</a> |
-                <a asp-action="Update" asp-route-id="@consulta.id">Atualizar</a> |
-                <a asp-action="Confirm" asp-route-id="@consulta.id">Deletar</a>
-            </td>
-        </tr>
+            <tr>
+                <td> @Html.DisplayFor(Model => consulta.id) </td>
+                <td> @Html.DisplayFor(Model => consulta.especialidade.Nome) </td>
+                <td> @Html.DisplayFor(Model => consulta.data) </td>
+                <td> @Html.DisplayFor(Model => consulta.paciente.Nome) </td>
+                <td>
+                    <a asp-action="Read" asp-route-id="@consulta.id">Visualizar</a> |
+                    <a asp-action="Update" asp-route-id="@consulta.id">Atualizar</a> |
+                    <a asp-action="Confirm" asp-route-id="@consulta.id">Deletar</a>
+                </td>
+            </tr>
         }
     </tbody>
 </table>
