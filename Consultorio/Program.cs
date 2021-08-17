@@ -14,7 +14,7 @@ namespace Consultorio
         public static void Main(string[] args)
         {
             var app = CreateHostBuilder(args).Build();
-            //SeedDatabase.Initialize(app);
+            SeedDatabase.Initialize(app);
             app.Run();
         }
 

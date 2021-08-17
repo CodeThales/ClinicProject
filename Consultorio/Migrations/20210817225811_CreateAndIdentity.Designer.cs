@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Consultorio.Migrations
 {
     [DbContext(typeof(ConsultorioContext))]
-    [Migration("20210817182008_Identity")]
-    partial class Identity
+    [Migration("20210817225811_CreateAndIdentity")]
+    partial class CreateAndIdentity
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
