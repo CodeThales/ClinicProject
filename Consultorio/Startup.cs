@@ -2,7 +2,7 @@ using Consultorio.Data;
 using Consultorio.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -42,6 +42,8 @@ namespace Consultorio
             services.AddTransient<IPacienteService, PacienteSqlService>();
             services.AddTransient<IConsultaService, ConsultaSqlService>();
             services.AddTransient<IEspecialidadeService, EspecialidadeService>();
+
+            services.AddDefaultIdentity<IdentityUser>().AddEntityFrameworkStores<ConsultorioContext>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -62,6 +64,7 @@ namespace Consultorio
 
             app.UseRouting();
 
+            app.UseAuthentication();
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
@@ -72,6 +75,8 @@ namespace Consultorio
                     // ProdutoController -> Criar  -- 
                     // Home / Index 
                     pattern: "{controller=Home}/{action=Index}/{id?}");
+
+                endpoints.MapRazorPages();
             });
         }
     }

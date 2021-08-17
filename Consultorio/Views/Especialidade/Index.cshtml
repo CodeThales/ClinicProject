@@ -1,7 +1,14 @@
 ﻿@model List<Especialidade>
+@using Microsoft.AspNetCore.Identity
+@inject SignInManager<IdentityUser> SignInManager
 
 <h2>Especialidades Cadastradas</h2>
-<a class="btn btn-info mb-3 mt-3" asp-controller="Especialidade" asp-action="Create">Adicionar uma nova especialidade!</a>
+
+@if (SignInManager.IsSignedIn(User))
+{
+    <a class="btn btn-info mb-3 mt-3" asp-controller="Especialidade" asp-action="Create">Adicionar uma nova especialidade!</a>
+}
+
 
 @if (TempData["Adicionado"] != null)
 {

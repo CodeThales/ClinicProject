@@ -1,4 +1,7 @@
 ﻿@model List<Paciente>
+@using Microsoft.AspNetCore.Identity
+@inject SignInManager<IdentityUser> SignInManager 
+
 @{
     var service = ViewBag.selectedService;
 }
@@ -23,7 +26,10 @@
         {
             <a href="?ordenar=true&service=@service" class="btn btn-info mr-0 mb-4">Ordenar!</a>
         }
-        <a class="btn btn-info mb-4" asp-controller="Paciente" asp-action="Create">Adicionar Paciente!</a>
+        @if (SignInManager.IsSignedIn(User))
+        {
+            <a class="btn btn-info mb-4" asp-controller="Paciente" asp-action="Create">Adicionar Paciente!</a>
+        }
     </div>
 </form>
 

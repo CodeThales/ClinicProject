@@ -1,10 +1,12 @@
 ﻿using Consultorio.Models;
 using Consultorio.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 
 namespace Consultorio.Controllers
 {   
+    [Authorize]
     public class EspecialidadeController : Controller
     {
         IEspecialidadeService service;

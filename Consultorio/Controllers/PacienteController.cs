@@ -1,10 +1,12 @@
 ﻿using Consultorio.Models;
 using Consultorio.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 
 namespace Consultorio.Controllers
 {   
+    [Authorize]
     public class PacienteController : Controller
     {
         IPacienteService _serviceStatic, _serviceSql, _service;

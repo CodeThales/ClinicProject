@@ -1,12 +1,13 @@
 ﻿using Consultorio.Models;
 using Consultorio.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
-using System;
 
 
 namespace Consultorio.Controllers
 {    
+    [Authorize]
     public class ConsultaController : Controller
     {
         IConsultaService service;

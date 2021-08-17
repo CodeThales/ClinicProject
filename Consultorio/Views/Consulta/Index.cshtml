@@ -1,7 +1,13 @@
 ﻿@model List<Consulta>
+@using Microsoft.AspNetCore.Identity
+@inject SignInManager<IdentityUser> SignInManager
 
 <h2>Consultas Agendadas</h2>
-<a class="btn btn-info mt-3 mb-3" asp-controller="Consulta" asp-action="Create">Agendar uma nova consulta!</a>
+@if (SignInManager.IsSignedIn(User))
+{
+    <a class="btn btn-info mt-3 mb-3" asp-controller="Consulta" asp-action="Create">Agendar uma nova consulta!</a>
+}
+
 
 @if (TempData["Adicionado"] != null)
 {
