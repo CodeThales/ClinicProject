@@ -33,9 +33,7 @@ namespace Consultorio
 
 
             // AddTransient é responsável por falar para o framework que,
-            // quando a interface for necessária, seja utilizada a classe
-
-            //services.AddTransient<IPacienteService, PacienteStaticService>();
+            // quando a interface for necessária, seja utilizada a classe            
             services.AddTransient<PacienteSqlService>();
             services.AddTransient<PacienteStaticService>();
             
@@ -44,6 +42,12 @@ namespace Consultorio
             services.AddTransient<IEspecialidadeService, EspecialidadeService>();
 
             services.AddDefaultIdentity<IdentityUser>().AddEntityFrameworkStores<ConsultorioContext>();
+
+            services.AddAuthentication().AddFacebook(facebookOptions =>
+            {
+                facebookOptions.AppId = Configuration["Authentication:Facebook:AppId"];
+                facebookOptions.AppSecret = Configuration["Authentication:Facebook:AppSecret"];
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

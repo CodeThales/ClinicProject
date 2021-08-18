@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "gdTetxh12UDujjsTrXJ+IcKeasRz3VcuvcZqVIKI2wwI17z0TUX6kbuZT+HCwpEs3f8PW+BM+mYyL3T/K3GkbA==",
+  "dgSpecHash": "ImKzEEMJLytPFF2qXJ5/PWCzTf1Q6iu/0jD+FcpEljl0hM6Ivo6u9+xI/QjBuZwy8NIBmjV8NB56Y5bKxXLZoQ==",
   "success": true,
   "projectFilePath": "D:\\O Talito\\Documents\\Cursos\\Programação e Desenvolvimento\\Blue EdTech\\Modulo 03 - BackEnd\\ClinicProject\\Consultorio\\Consultorio.csproj",
   "expectedPackageFiles": [
@@ -9,6 +9,7 @@
     "C:\\Users\\Thales Ribero\\.nuget\\packages\\microsoft.aspnetcore.authentication.abstractions\\2.2.0\\microsoft.aspnetcore.authentication.abstractions.2.2.0.nupkg.sha512",
     "C:\\Users\\Thales Ribero\\.nuget\\packages\\microsoft.aspnetcore.authentication.cookies\\2.2.0\\microsoft.aspnetcore.authentication.cookies.2.2.0.nupkg.sha512",
     "C:\\Users\\Thales Ribero\\.nuget\\packages\\microsoft.aspnetcore.authentication.core\\2.2.0\\microsoft.aspnetcore.authentication.core.2.2.0.nupkg.sha512",
+    "C:\\Users\\Thales Ribero\\.nuget\\packages\\microsoft.aspnetcore.authentication.facebook\\5.0.9\\microsoft.aspnetcore.authentication.facebook.5.0.9.nupkg.sha512",
     "C:\\Users\\Thales Ribero\\.nuget\\packages\\microsoft.aspnetcore.cryptography.internal\\5.0.9\\microsoft.aspnetcore.cryptography.internal.5.0.9.nupkg.sha512",
     "C:\\Users\\Thales Ribero\\.nuget\\packages\\microsoft.aspnetcore.cryptography.keyderivation\\5.0.9\\microsoft.aspnetcore.cryptography.keyderivation.5.0.9.nupkg.sha512",
     "C:\\Users\\Thales Ribero\\.nuget\\packages\\microsoft.aspnetcore.dataprotection\\2.2.0\\microsoft.aspnetcore.dataprotection.2.2.0.nupkg.sha512",
